@@ -1,35 +1,67 @@
-<h1 align="center" id="title">VESC DASH</h1>
+# VESC DASH 📱⚡️
 
-VESC DASH is a powerful and user-friendly Android application designed to provide a comprehensive dashboard for your VESC. It offers a real-time view of critical metrics, allowing you to stay informed about your electric skateboard, electric bike, or other VESC-powered project's performance at a glance.
-Key Features:
- * Real-time Data Display: Monitor a wide range of VESC data streams, including:
-   * Speed
-   * Voltage
-   * Current
-   * Wattage
-   * Temperature
-   * RPM
-   * Duty cycle
-   * Fault codes (with descriptions)
-   * And more! (Depending on VESC configuration)
- * Customizable Dashboard:  Choose the data points that are most important to you and arrange them in a layout that suits your preferences.
- * Data Logging: Track your ride data for later analysis. Export your logs in various formats for further exploration in spreadsheets or data analysis tools.
- * Alerts and Notifications: Set up customizable alerts to warn you of critical conditions, such as high motor temperature or low battery voltage.
- * [Optional] Advanced Features:  Some VESC DASH versions might include additional features like:
-   * Remote control capabilities (change settings, activate specific modes)
-   * Logging to cloud storage
-   * GPS tracking and route mapping
-Benefits of Using VESC DASH:
- * Enhanced Safety: By keeping a close eye on vital statistics, you can identify potential issues before they lead to problems.
- * Improved Performance: Gain insights into your VESC's behavior and fine-tune settings for optimal performance.
- * Increased Efficiency: Monitor battery usage and optimize your ride for maximum range.
- * Data-Driven Decisions: Analyze logged data to understand your riding patterns and make informed choices about maintenance and upgrades.
-Getting Started with VESC DASH:
- * Download and install the VESC DASH app from the Google Play Store (link to be provided).
- * Ensure your Android device and VESC are compatible (refer to app documentation for details).
- * Establish a connection between your phone and VESC using Bluetooth or another supported communication protocol (consult app instructions).
- * Launch the VESC DASH app and customize your dashboard layout.
- * Start your ride and monitor your VESC's performance in real-time!
-Contribution and Development:
-VESC DASH is an open-source project (link to GitHub repository). We welcome contributions from the community to improve the app's functionality and features.
+**VESC DASH** is an Android app that provides an intuitive dashboard for your VESC (Vedder Electronic Speed Controller). It connects seamlessly to your VESC to display real-time data, including speed, wattage, voltage, and other key metrics to keep track of your electric vehicle's performance in a sleek and user-friendly interface.
 
+## Features 🚀
+
+- **Real-time Data**: Get live updates on critical stats such as speed, wattage, voltage, current, and more. 
+- **Customizable Dashboard**: Personalize your dashboard to display the information that matters most to you.
+- **Graphical Stats**: Visualize your data with beautiful and easy-to-understand graphs.
+- **Battery Monitoring**: Track your battery status to ensure you're never caught off guard.
+- **VESC Connection**: Fast and reliable Bluetooth connectivity with your VESC to stream data in real time.
+- **Data Logging**: Log your ride data for review and future performance analysis.
+
+## Screenshots 📸
+
+![Dashboard Screenshot](assets/dashboard_example.png)
+*Your real-time performance metrics at a glance.*
+
+![Graph Screenshot](assets/graph_example.png)
+*Visualize your data with beautiful graphs.*
+
+## Installation 📥
+
+1. **Download the APK**:  
+   Get the latest APK from the [releases page](https://github.com/yourusername/VESC-DASH/releases) or build the app yourself.
+
+2. **Install the App**:  
+   Once the APK is downloaded, simply tap to install it on your Android device.
+
+3. **Pair with Your VESC**:  
+   Open the app, enable Bluetooth on your device, and pair it with your VESC to start monitoring your performance!
+
+## Usage 🏍️
+
+Once connected to your VESC, you’ll be able to:
+
+- View real-time metrics like **speed**, **wattage**, **voltage**, and **current**.
+- Monitor your **battery health** and adjust settings as needed.
+- Customize the dashboard layout to suit your preferences.
+
+## Requirements 📋
+
+- Android 5.0 (Lollipop) or higher
+- Bluetooth enabled device
+- VESC
+
+## Contributing 🤝
+
+We welcome contributions! If you’d like to help improve **VESC DASH**, please fork the repository and submit a pull request. Here’s how you can get started:
+
+1. Fork the repository
+2. Create your branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a pull request and explain the changes you made
+
+Please refer to the [contribution guidelines](CONTRIBUTING.md) for more detailed instructions.
+
+## License 📜
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact 📬
+
+If you have any questions or feedback, feel free to open an issue or contact us via TELEGRAM @CRZX1337.
+
+---
