@@ -1,0 +1,47 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-gray-100">
+    <ActionBar title="VESC Monitor" class="bg-blue-600 text-white" />
+    
+    <GridLayout rows="auto, *" class="p-4">
+        <!-- Connection Status -->
+        <StackLayout row="0" class="mb-4">
+            <Label text="{{ isConnected ? 'Connected' : 'Disconnected' }}" 
+                   class="{{ isConnected ? 'text-green-600' : 'text-red-600' }} text-lg font-bold text-center" />
+            <Button text="{{ isScanning ? 'Scanning...' : 'Scan for Devices' }}"
+                    tap="{{ startScan }}"
+                    isEnabled="{{ !isScanning }}"
+                    class="bg-blue-500 text-white p-4 rounded-lg" />
+        </StackLayout>
+
+        <!-- Device Data -->
+        <ScrollView row="1">
+            <StackLayout class="space-y-4">
+                <!-- Device List -->
+                <ListView items="{{ devices }}" visibility="{{ isConnected ? 'collapsed' : 'visible' }}">
+                    <ListView.itemTemplate>
+                        <StackLayout class="p-2 bg-white rounded-lg">
+                            <Label text="{{ name || 'Unknown Device' }}" class="font-bold" />
+                            <Label text="{{ UUID }}" class="text-gray-500" />
+                            <Button text="Connect" 
+                                    tap="{{ $parent.connectToDevice }}" 
+                                    class="bg-green-500 text-white p-2 rounded" />
+                        </StackLayout>
+                    </ListView.itemTemplate>
+                </ListView>
+
+                <!-- VESC Data -->
+                <GridLayout rows="auto, auto, auto" columns="*, *" 
+                           visibility="{{ isConnected ? 'visible' : 'collapsed' }}"
+                           class="bg-white p-4 rounded-lg">
+                    <Label row="0" col="0" text="Speed" class="text-gray-600" />
+                    <Label row="0" col="1" text="{{ deviceData.speed + ' km/h' }}" class="text-right" />
+                    
+                    <Label row="1" col="0" text="Voltage" class="text-gray-600" />
+                    <Label row="1" col="1" text="{{ deviceData.voltage + ' V' }}" class="text-right" />
+                    
+                    <Label row="2" col="0" text="Current" class="text-gray-600" />
+                    <Label row="2" col="1" text="{{ deviceData.current + ' A' }}" class="text-right" />
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+</Page>
