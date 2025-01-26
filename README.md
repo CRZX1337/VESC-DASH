@@ -22,7 +22,7 @@
 ## Installation 📥
 
 1. **Download the APK**:  
-   Get the latest APK from the [releases page](https://github.com/yourusername/VESC-DASH/releases) or build the app yourself.
+   Get the latest APK from the [releases page](https://github.com/CRzx1337/VESC-DASH/releases) or build the app yourself.
 
 2. **Install the App**:  
    Once the APK is downloaded, simply tap to install it on your Android device.
