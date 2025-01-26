@@ -1,4 +1,5 @@
-VESC DASH: Android App for Your VESC
+<h1 align="center" id="title">VESC DASH</h1>
+
 VESC DASH is a powerful and user-friendly Android application designed to provide a comprehensive dashboard for your VESC. It offers a real-time view of critical metrics, allowing you to stay informed about your electric skateboard, electric bike, or other VESC-powered project's performance at a glance.
 Key Features:
  * Real-time Data Display: Monitor a wide range of VESC data streams, including:
