@@ -30,7 +30,7 @@ jobs:
           npm ci
 
       - name: Generate Android keystore
-        if: ${{ !secrets.KEYSTORE_BASE64 }}
+        if: ${{ github.event_name == 'push' && !env.KEYSTORE_BASE64 }}
         run: |
           keytool -genkey -v \
             -keystore vesc-monitor.keystore \
@@ -43,7 +43,7 @@ jobs:
             -keypass ${{ secrets.KEY_PASSWORD || 'android' }}
 
       - name: Decode Keystore
-        if: ${{ secrets.KEYSTORE_BASE64 }}
+        if: ${{ github.event_name == 'push' && env.KEYSTORE_BASE64 }}
         run: |
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > vesc-monitor.keystore
 
