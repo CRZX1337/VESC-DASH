@@ -62,6 +62,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact 📬
 
-If you have any questions or feedback, feel free to open an issue or contact us via TELEGRAM https://t.me/CRZX1337 or https://t.me/vescdash .
+If you have any questions or feedback, feel free to open an issue or contact us via TELEGRAM https://t.me/CRZX1337 or https://t.me/vescdash 
 
 ---
