@@ -23,10 +23,12 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       - name: Install dependencies
         run: |
           npm install -g @nativescript/cli
+          npm install
           npm ci
 
       - name: Generate Android keystore
