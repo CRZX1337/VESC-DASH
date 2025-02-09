@@ -12,7 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Debug - Arbeitsverzeichnis und Dateien auflisten
+      - name: Debug - Arbeitsverzeichnis und Dateien auflisten (VOR npm install)
+        run: |
+          pwd
+          ls -al
+
+      - name: Generate package-lock.json (if missing)
+        run: npm install  # Führt npm install aus, um package-lock.json zu erstellen/aktualisieren
+
+      - name: Debug - Arbeitsverzeichnis und Dateien auflisten (NACH npm install)
         run: |
           pwd
           ls -al
