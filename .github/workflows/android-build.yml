@@ -1,4 +1,4 @@
-name: Debug Node.js and npm install (Test Lodash)
+name: Debug Node.js and npm install (Re-try NS CLI with Verbose)
 
 on:
   push:
@@ -30,5 +30,5 @@ jobs:
           npm -v
           npm config get registry
 
-      - name: Install lodash (Test)  # <-- HIER GEÄNDERT: Installiere lodash statt @nativescript/cli
-        run: npm install lodash    # <-- HIER GEÄNDERT: Installiere lodash statt @nativescript/cli
+      - name: Install @nativescript/cli (Simplified, Lokal, Verbose)
+        run: npm install --verbose @nativescript/cli
