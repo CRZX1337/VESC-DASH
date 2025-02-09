@@ -1,4 +1,4 @@
-name: Android Build
+name: Debug Node.js and npm install
 
 on:
   push:
@@ -7,79 +7,21 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  debug_node:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Debug - Arbeitsverzeichnis und Dateien auflisten (VOR npm install)
-        run: |
-          pwd
-          ls -al
-
-      - name: Generate package-lock.json (if missing)
-        run: npm install  # Führt npm install aus, um package-lock.json zu erstellen/aktualisieren
-
-      - name: Debug - Arbeitsverzeichnis und Dateien auflisten (NACH npm install)
-        run: |
-          pwd
-          ls -al
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: 'package-lock.json'
+          cache: 'npm' # Keep caching for now, but might remove later if still failing
 
-      - name: Install dependencies
+      - name: Check Node.js and npm versions
         run: |
-          npm install -g @nativescript/cli
-          npm ci
+          node -v
+          npm -v
 
-      - name: Generate Android keystore
-        if: ${{ github.event_name == 'push' && !env.KEYSTORE_BASE64 }}
-        run: |
-          keytool -genkey -v \
-            -keystore vesc-monitor.keystore \
-            -alias vesc-monitor \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -dname "CN=VESC Monitor,O=VESC Monitor,L=Unknown,S=Unknown,C=US" \
-            -storepass ${{ secrets.KEYSTORE_PASSWORD || 'android' }} \
-            -keypass ${{ secrets.KEY_PASSWORD || 'android' }}
-
-      - name: Decode Keystore
-        if: ${{ github.event_name == 'push' && env.KEYSTORE_BASE64 }}
-        run: |
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > vesc-monitor.keystore
-
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Build Android
-        env:
-          KEYSTORE_PATH: vesc-monitor.keystore
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD || 'android' }}
-          KEYSTORE_ALIAS: vesc-monitor
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'android' }}
-        run: |
-          ns build android --release \
-            --key-store-path "$KEYSTORE_PATH" \
-            --key-store-password "$KEYSTORE_PASSWORD" \
-            --key-store-alias "$KEYSTORE_ALIAS" \
-            --key-store-alias-password "$KEYPASSWORD"
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-release
-          path: platforms/android/app/build/outputs/apk/release/app-release.apk
-
-      - name: Upload Debug Build
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: app-debug
-          path: platforms/android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Install @nativescript/cli (Simplified)
+        run: npm install @nativescript/cli
