@@ -1,4 +1,4 @@
-name: Debug Node.js and npm install
+name: Debug Node.js and npm install (Registry Fix)
 
 on:
   push:
@@ -16,12 +16,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          # cache: 'npm'  <-- HIER ENTFERNT: Caching deaktiviert
+          # Kein Cache für den Moment
+
+      - name: Configure npm Registry (Explizit auf Standard setzen)
+        run: npm config set registry https://registry.npmjs.org/
+
+      - name: Clean npm cache
+        run: npm cache clean --force
 
       - name: Check Node.js and npm versions
         run: |
           node -v
           npm -v
+          npm config get registry  # Überprüfe die Registry URL
 
-      - name: Install @nativescript/cli (Simplified)
+      - name: Install @nativescript/cli (Simplified, Lokal)
         run: npm install @nativescript/cli
