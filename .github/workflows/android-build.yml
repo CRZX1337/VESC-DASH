@@ -1,4 +1,4 @@
-name: Debug Node.js and npm install (Registry Fix)
+name: Debug Node.js and npm install (Test Lodash)
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         run: |
           node -v
           npm -v
-          npm config get registry  # Überprüfe die Registry URL
+          npm config get registry
 
-      - name: Install @nativescript/cli (Simplified, Lokal)
-        run: npm install @nativescript/cli
+      - name: Install lodash (Test)  # <-- HIER GEÄNDERT: Installiere lodash statt @nativescript/cli
+        run: npm install lodash    # <-- HIER GEÄNDERT: Installiere lodash statt @nativescript/cli
