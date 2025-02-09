@@ -12,11 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+      - name: Debug - Arbeitsverzeichnis und Dateien auflisten
+        run: |
+          pwd
+          ls -al
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -28,7 +27,6 @@ jobs:
       - name: Install dependencies
         run: |
           npm install -g @nativescript/cli
-          npm install
           npm ci
 
       - name: Generate Android keystore
@@ -63,7 +61,7 @@ jobs:
             --key-store-path "$KEYSTORE_PATH" \
             --key-store-password "$KEYSTORE_PASSWORD" \
             --key-store-alias "$KEYSTORE_ALIAS" \
-            --key-store-alias-password "$KEY_PASSWORD"
+            --key-store-alias-password "$KEYPASSWORD"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
