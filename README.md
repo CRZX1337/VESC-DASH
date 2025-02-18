@@ -1,4 +1,7 @@
-# VESC DASH 📱⚡️
+<div align="center">
+    <img src="logo.jpg" alt="Logo">
+</div>
+<p align="center">
 
 **VESC DASH** is an Android app that provides an intuitive dashboard for your VESC (Vedder Electronic Speed Controller). It connects seamlessly to your VESC to display real-time data, including speed, wattage, voltage, and other key metrics to keep track of your electric vehicle's performance in a sleek and user-friendly interface with MATERIAL-YOU Design.
 
